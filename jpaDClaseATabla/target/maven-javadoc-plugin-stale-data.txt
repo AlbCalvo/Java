@@ -1,0 +1,60 @@
+@options
+@packages
+-classpath
+'C:/Users/acmmi/.m2/repository/org/eclipse/persistence/org.eclipse.persistence.core/2.7.12/org.eclipse.persistence.core-2.7.12.jar;C:/Users/acmmi/.m2/repository/org/eclipse/persistence/org.eclipse.persistence.asm/9.4.0/org.eclipse.persistence.asm-9.4.0.jar;C:/Users/acmmi/.m2/repository/org/eclipse/persistence/org.eclipse.persistence.antlr/2.7.12/org.eclipse.persistence.antlr-2.7.12.jar;C:/Users/acmmi/.m2/repository/org/eclipse/persistence/org.eclipse.persistence.jpa/2.7.12/org.eclipse.persistence.jpa-2.7.12.jar;C:/Users/acmmi/.m2/repository/org/eclipse/persistence/org.eclipse.persistence.jpa.jpql/2.7.12/org.eclipse.persistence.jpa.jpql-2.7.12.jar;C:/Users/acmmi/.m2/repository/org/eclipse/persistence/org.eclipse.persistence.moxy/2.7.12/org.eclipse.persistence.moxy-2.7.12.jar;C:/Users/acmmi/.m2/repository/org/eclipse/persistence/jakarta.persistence/2.2.3/jakarta.persistence-2.2.3.jar;C:/Users/acmmi/.m2/repository/org/eclipse/persistence/org.eclipse.persistence.jpa.modelgen.processor/2.7.12/org.eclipse.persistence.jpa.modelgen.processor-2.7.12.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'20'
+-sourcepath
+'C:/Users/acmmi/Documents/Docencia/JavaDocencia/ProyectosEnJava/jpaDClaseATabla/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/acmmi/Documents/Docencia/JavaDocencia/ProyectosEnJava/jpaDClaseATabla/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'jpaDClaseATabla 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'jpaDClaseATabla 1.0-SNAPSHOT API'
+com.mycompany.jpadclaseatabla
+com.mycompany.jpadclaseatabla.logica
+com.mycompany.jpadclaseatabla.persistencia
+com.mycompany.jpadclaseatabla.persistencia.exceptions
+C:\Users\acmmi\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.core\2.7.12\org.eclipse.persistence.core-2.7.12.jar = 1697341922499
+C:\Users\acmmi\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.asm\9.4.0\org.eclipse.persistence.asm-9.4.0.jar = 1697341923174
+C:\Users\acmmi\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.antlr\2.7.12\org.eclipse.persistence.antlr-2.7.12.jar = 1697341922772
+C:\Users\acmmi\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.jpa\2.7.12\org.eclipse.persistence.jpa-2.7.12.jar = 1697341924514
+C:\Users\acmmi\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.jpa.jpql\2.7.12\org.eclipse.persistence.jpa.jpql-2.7.12.jar = 1697341924455
+C:\Users\acmmi\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.moxy\2.7.12\org.eclipse.persistence.moxy-2.7.12.jar = 1697341923464
+C:\Users\acmmi\.m2\repository\org\eclipse\persistence\jakarta.persistence\2.2.3\jakarta.persistence-2.2.3.jar = 1697341923080
+C:\Users\acmmi\.m2\repository\org\eclipse\persistence\org.eclipse.persistence.jpa.modelgen.processor\2.7.12\org.eclipse.persistence.jpa.modelgen.processor-2.7.12.jar = 1697341923217
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\src\main\java = 1697433086782
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\target\site\apidocs\allclasses-index.html = 1697534620980
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\target\site\apidocs\allpackages-index.html = 1697534620983
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\target\site\apidocs\copy.svg = 1697534621014
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\target\site\apidocs\element-list = 1697534620846
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\target\site\apidocs\help-doc.html = 1697534621009
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\target\site\apidocs\index-all.html = 1697534621000
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\target\site\apidocs\index.html = 1697534620966
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\target\site\apidocs\javadoc.bat = 1697534619595
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\target\site\apidocs\member-search-index.js = 1697534620987
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\target\site\apidocs\module-search-index.js = 1697534620984
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\target\site\apidocs\overview-summary.html = 1697534621006
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\target\site\apidocs\overview-tree.html = 1697534620962
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\target\site\apidocs\package-search-index.js = 1697534620985
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\target\site\apidocs\script.js = 1697534621013
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\target\site\apidocs\search-page.js = 1697534621020
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\target\site\apidocs\search.html = 1697534621003
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\target\site\apidocs\search.js = 1697534621017
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\target\site\apidocs\serialized-form.html = 1697534620910
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\target\site\apidocs\stylesheet.css = 1697534621011
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\target\site\apidocs\tag-search-index.js = 1697534620988
+C:\Users\acmmi\Documents\Docencia\JavaDocencia\ProyectosEnJava\jpaDClaseATabla\target\site\apidocs\type-search-index.js = 1697534620986
