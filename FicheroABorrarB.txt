@@ -1,1 +1,2 @@
 Añadimos info antes de hacer el commit
+Voy a borrar el fichero
