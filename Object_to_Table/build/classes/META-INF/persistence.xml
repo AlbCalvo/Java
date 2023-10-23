@@ -3,6 +3,8 @@
   <persistence-unit name="Object_to_TablePU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>logica.Alumno</class>
+    <class>logica.Carrera</class>
+    <class>logica.Materia</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/booksfacegroups?serverTimezone=UTC"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

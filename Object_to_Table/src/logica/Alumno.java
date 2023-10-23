@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -37,19 +38,49 @@ public class Alumno implements Serializable  {
     @Temporal(TemporalType.DATE) // Mapeamos la fecha para indicar cómo es.
     private Date fechaNac;
     
+    /* Paso 1.- 
+        RELACIÓN (1 a 1) ENTRE Alumno y Carrera.
+        Supuesto: Un Alumno SOLO puede hacer una carrera.
+       Paso 2.-
+        Informar a JPA de la existencia de esta relación.
+        utilizando la entity @OneToOne
+       Paso 3.- Borrar el constructor y volver a crearlo. 
+        Se a ++ un nuevo atributo, carrera.
+       Paso 4.- ++ Setter y Getter de carrera.
+       Paso 5.- Volver a crear AlumnoJpaController para
+        que tenga en cuenta a carrera, así como también crear el
+        Jpa de carrera.
+    */
+    @OneToOne
+    private Carrera carre;
+    
+    
+    
     //CONSTRUCTORES.
+
     public Alumno() {
     }
 
-    public Alumno(int id, String nombre, String apellido, Date fechaNac) {
+    public Alumno(int id, String nombre, String apellido, Date fechaNac, Carrera carre) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNac = fechaNac;
+        this.carre = carre;
     }
-   
+
     //GETTER Y SETTER.
 
+    public Carrera getCarre() {
+        return carre;
+    }
+
+    public void setCarre(Carrera carre) {
+        this.carre = carre;
+    }
+    
+    
+    
     public int getId() {
         return id;
     }
@@ -80,6 +111,11 @@ public class Alumno implements Serializable  {
 
     public void setFechaNac(Date fechaNac) {
         this.fechaNac = fechaNac;
+    }
+
+    @Override
+    public String toString() {
+        return "Alumno{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", fechaNac=" + fechaNac + '}';
     }
     
     
