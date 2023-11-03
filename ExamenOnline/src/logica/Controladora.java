@@ -1,61 +1,13 @@
 
 package logica;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import persistencia.ControladoraPersistencia;
 
 
 public class Controladora {
-/*
-    //Declaración de variables.
-    LinkedList<Examen> listaExamenII = new LinkedList<Examen>();
-    ControladoraPersistencia controlPersis = new ControladoraPersistencia();
-
-    public void guardar(String SrcNombre, String SrcApellido1, String SrcApellido2, 
-            String SrcCurso, String SrEmail, String SrcObservaciones, 
-            String primeraParticipacion) {
-        
-            System.out.println("Parámetros recibidos");
-            System.out.println("SrcNombre: " + SrcNombre);
-            System.out.println("SrcApellido1: " + SrcApellido1);
-            // Declaración de las dos variables.
-            Alumno alu = new Alumno();
-            Examen exa = new Examen();
-            / ALUMNO ****
-                id_alumno: Se crea automáticamente
-                listaExamenes; No informado
-            /
-            alu.setId_Examen( exa.getId_Examen());
-            alu.setNombreAlumno(SrcNombre);
-            alu.setPrimerApellido(SrcApellido1);
-            alu.setSegundoApellido(SrcApellido2);
-            alu.setCursoAlumno(SrcCurso);
-            alu.setEmailAlumno(SrEmail);
-            alu.setObservacionesAlumno(SrcObservaciones);
-            alu.setPrimeraConvocatoriaAlumno(primeraParticipacion);
-            / EXAMEN ****
-                 id_Examen: Creado automáticamente
-            /
-            alu.setId_Examen(exa.getId_Examen());
-            exa.setId_Alumno(alu.getId_alumno());
-            exa.setAnioExamen(2023);
-            listaExamenII.add (exa);
-            alu.setListaExamenes(listaExamenII);
-            exa.setAlumnExamen(alu);
-
-            System.out.println("02 Vamos a informar Alumno");
-            System.out.println("NombreAlumno: " + alu.getNombreAlumno());
-            System.out.println("ObservacionesAlumno: " + alu.getObservacionesAlumno());
-            //System.out.println("Alumno: " + alu.toString() );
-            
-            System.out.println("03 Vamos a informar Examen");
-            System.out.println("AnioExamen: " + exa.getAnioExamen());
-            //System.out.println("Examen: " + exa.toString());
-            controlPersis.guardar (alu, exa);
-
-    
-    }*/
-            
     ControladoraPersistencia controlPersis = new ControladoraPersistencia();
     //---------------- Alumno -------------------
     public void crearAlumno (Alumno alu){
@@ -86,6 +38,34 @@ public class Controladora {
     public Examen traerExamen (int id){
        return controlPersis.traerExamen(id);
     }
-    
+    public List<Examen> traerExamenes (){
+       return controlPersis.traerExamenes();
+    }
+
+    public void borrarExamen(int vid_examen) {
+        controlPersis.borrarExamen(vid_examen);
+    }
+
+    public void mostrarAviso(String titulo, String msg, String tipoAviso) {
+        JOptionPane optionPane = new JOptionPane(titulo);
+        if (tipoAviso.equals ("Info")){
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        } else if (tipoAviso.equals ("Error")){
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+        }
+        JDialog dialog = optionPane.createDialog(msg);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+    }
+
+    public void modificarExayAlu(Examen exa, String nombre, String apellido1, String apellido2, 
+            String curso, String email, String observaciones, String primeraParticipacion) {
+        // En mi ejemplo los datos del examen no aparecen por pantalla, por lo que vamos a 
+        // modificar los datos de bdd del alumno, k sí son los k aparecen en pantalla.
+        controlPersis.modificarAlumno(exa);
+        
+     }
+
 
 }
+

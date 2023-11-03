@@ -7,12 +7,16 @@ import logica.Examen;
 import logica.Alumno;
 import logica.Controladora;
  
-public class Identificarse extends javax.swing.JFrame {
-    Controladora control = new Controladora();
+public class ModificarIdentificacion extends javax.swing.JFrame {
+    Controladora control = null;
+    int id_examen;
+    Examen exa; // Declaramos variable global
     
-    public Identificarse() {
-        //control = new Controladora();
-        initComponents();
+    public ModificarIdentificacion(int id_examen) {
+        control = new Controladora();
+        //this.id_examen = id_examen;
+        initComponents(); //Crea la interface gráfica
+        cargarDatos(id_examen);
     }
 
     /**
@@ -114,7 +118,7 @@ public class Identificarse extends javax.swing.JFrame {
         });
 
         btnScGuardar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnScGuardar.setText("Guardar");
+        btnScGuardar.setText("Guardar cambios");
         btnScGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnScGuardarActionPerformed(evt);
@@ -163,25 +167,24 @@ public class Identificarse extends javax.swing.JFrame {
                     .addComponent(txtScEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(219, 219, 219))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(47, 47, 47)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
                         .addComponent(cmbPrimeraParticipacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
                         .addComponent(btnScLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnScGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnScGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnScGoExamen, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel3, jLabel4});
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnScGoExamen, btnScGuardar, btnScLimpiar});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnScGoExamen, btnScLimpiar});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,14 +219,14 @@ public class Identificarse extends javax.swing.JFrame {
                     .addComponent(cmbPrimeraParticipacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(76, 76, 76)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnScGuardar)
+                    .addComponent(btnScGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnScLimpiar)
                     .addComponent(btnScGoExamen))
                 .addGap(69, 69, 69))
         );
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setText("Escribe tus datos para empezar.");
+        jLabel1.setText("Modificar tus datos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -234,8 +237,8 @@ public class Identificarse extends javax.swing.JFrame {
                 .addGap(0, 16, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(96, 96, 96))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -288,54 +291,20 @@ public class Identificarse extends javax.swing.JFrame {
 
     private void btnScGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScGuardarActionPerformed
         
-        //OBJETIVO: Reservar espacio para ALUMNO.
-        //Crear lista Exámenes y la asignamos a Alumno (Sin información)
-        LinkedList<Examen> listitaExam = new LinkedList<Examen>();
-        //Creación Alumno
-        Alumno alu = new Alumno();
-        alu.setId_Examen(0);
-        alu.setNombreAlumno(txtScNombre.getText());
-        alu.setPrimerApellido(txtScApellido1.getText());
-        alu.setSegundoApellido(txtScApellido2.getText());
-        alu.setCursoAlumno(txtScCurso.getText());
-        alu.setEmailAlumno(txtScEmail.getText());
-        alu.setObservacionesAlumno(txtScObservaciones.getText());
-        alu.setPrimeraConvocatoriaAlumno((String) cmbPrimeraParticipacion.getSelectedItem());
-        alu.setListaExamenes(listitaExam);
-        control.crearAlumno(alu);
-        //Creación Examen.
-        Examen exa = new Examen();
-        exa.setId_Alumno(alu.getId_alumno());
-        exa.setAnioExamen(2023);
-        exa.setGradoExamen(2);
-        exa.setCuatrimestreExamen(2);
-        exa.setTituloCuestionario("Examen de Didáctica");
-        exa.setNotaDlExamen(5);
-        exa.setAlumnExamen(alu);
-        control.crearExamen(exa);
-        //(1)Agregar Examen a listitaExam de Alumno(2)Salvarlo en Bdd.
-        listitaExam.add(exa);
-        alu.setListaExamenes(listitaExam);
-        control.editarAlumno(alu);
+               
+        control.modificarExayAlu (exa, txtScNombre.getText(), txtScApellido1.getText(), 
+                txtScApellido2.getText(), txtScCurso.getText(), txtScEmail.getText(),
+                txtScObservaciones.getText(), (String) cmbPrimeraParticipacion.getSelectedItem());
+                 
         
         // Llamamos a método mostrar mensaje por pantalla.
-        control.mostrarAviso ("Se guardó correctamente", "Guardado con éxito", "Info" );
+        control.mostrarAviso ("Se modificó correctamente", "Modificado con éxito", "Info" );
         
         
         
-        //Pantalla aviso grabao corrrectamente
-        /* 
-        JOptionPane optionPane = new JOptionPane("Se guardó correctamente");
-        JDialog dialog = optionPane.createDialog("Título");
-        dialog.setAlwaysOnTop(true);
-        dialog.setVisible(true);
-        */
         
     }//GEN-LAST:event_btnScGuardarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnScGoExamen;
@@ -359,4 +328,27 @@ public class Identificarse extends javax.swing.JFrame {
     private javax.swing.JTextField txtScNombre;
     private javax.swing.JTextArea txtScObservaciones;
     // End of variables declaration//GEN-END:variables
-}
+
+    private void cargarDatos(int id_examen) {
+        
+        //Esta exa la declaramos como global
+       this.exa = control.traerExamen(id_examen);
+        
+       txtScNombre.setText(exa.getAlumnExamen().getNombreAlumno());
+       txtScApellido1.setText(exa.getAlumnExamen().getPrimerApellido());
+       txtScApellido2.setText(exa.getAlumnExamen().getSegundoApellido());
+       txtScCurso.setText(exa.getAlumnExamen().getCursoAlumno());
+       txtScEmail.setText(exa.getAlumnExamen().getEmailAlumno());
+       txtScObservaciones.setText(exa.getAlumnExamen().getObservacionesAlumno());
+       
+       if (exa.getAlumnExamen().getPrimeraConvocatoriaAlumno().equals("Sí")){
+            cmbPrimeraParticipacion.setSelectedIndex(1);
+        } else {
+           if (exa.getAlumnExamen().getPrimeraConvocatoriaAlumno().equals("No")){
+               cmbPrimeraParticipacion.setSelectedIndex(2);
+              } else {
+               cmbPrimeraParticipacion.setSelectedIndex(2);
+         }
+        }
+       }
+} // End public class

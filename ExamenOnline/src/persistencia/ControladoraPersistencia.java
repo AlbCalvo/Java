@@ -73,7 +73,25 @@ public class ControladoraPersistencia {
     public Examen traerExamen(int id) {
         return exaJpa.findExamen(id);
     }
+
+    public List<Examen> traerExamenes() {
+        //Todo lo encontrado en la bdd lo retorna a la controladora y de esta a VerDatos
+        return exaJpa.findExamenEntities();
+    }
+
+    public void borrarExamen(int vid_examen) {
+        try {
+            exaJpa.destroy(vid_examen);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
     
+    }
+
+    public void modificarAlumno(Examen exa) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
 }
