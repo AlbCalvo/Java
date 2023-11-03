@@ -40,7 +40,7 @@ public class ControladoraPersistencia {
         }
     }
 
-    public Alumno traerAlumno(int id) {
+    public Alumno traerAlumno(int id) { //Buscar alumno de la bdd
         return aluJpa.findAlumno(id);
     }
 
@@ -70,7 +70,7 @@ public class ControladoraPersistencia {
         }
     }
 
-    public Examen traerExamen(int id) {
+    public Examen traerExamen(int id) { //Buscar en la Bdd el Id del examen seleccionado.
         return exaJpa.findExamen(id);
     }
 
@@ -89,8 +89,20 @@ public class ControladoraPersistencia {
     
     }
 
-    public void modificarAlumno(Examen exa) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       public void modificarExamenBdd(Examen exa) {
+        try {
+            exaJpa.edit(exa);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void modificarAlumnoBdd(Alumno alumnaModificar) {
+        try {
+            aluJpa.edit(alumnaModificar);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     

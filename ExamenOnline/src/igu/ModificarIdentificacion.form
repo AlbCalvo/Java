@@ -94,7 +94,7 @@
                       <Group type="102" attributes="0">
                           <Component id="btnScLimpiar" linkSize="2" min="-2" pref="122" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnScGuardar" min="-2" pref="185" max="-2" attributes="0"/>
+                          <Component id="btnScGuardarCambios" min="-2" pref="185" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btnScGoExamen" linkSize="2" min="-2" pref="152" max="-2" attributes="0"/>
                       </Group>
@@ -143,7 +143,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnScGuardar" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="btnScGuardarCambios" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
                       <Component id="btnScLimpiar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnScGoExamen" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -288,7 +288,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnScLimpiarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnScGuardar">
+        <Component class="javax.swing.JButton" name="btnScGuardarCambios">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -296,7 +296,7 @@
             <Property name="text" type="java.lang.String" value="Guardar cambios"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnScGuardarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnScGuardarCambiosActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnScGoExamen">

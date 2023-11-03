@@ -60,11 +60,30 @@ public class Controladora {
 
     public void modificarExayAlu(Examen exa, String nombre, String apellido1, String apellido2, 
             String curso, String email, String observaciones, String primeraParticipacion) {
-        // En mi ejemplo los datos del examen no aparecen por pantalla, por lo que vamos a 
-        // modificar los datos de bdd del alumno, k sí son los k aparecen en pantalla.
-        controlPersis.modificarAlumno(exa);
+        // Modificar Examen - Solo el año -
+        exa.setAnioExamen(2024);
+        controlPersis.modificarExamenBdd(exa);
         
+        // Modificar Alumno. Paso 1.-Localizarlo en la Bdd. Paso 2.- Modificar datos.
+        //Paso 1.-Localizarlo en la Bdd. Creamos la búsqueda del Alumno en Bdd en la controladora por si otro método lo necesitara.
+        Alumno alumnaModificar = this.buscarAlumnoEnBdd(exa.getAlumnExamen().getId_alumno());
+        //Paso 2.- Modificar datos.
+        alumnaModificar.setNombreAlumno(nombre);
+        alumnaModificar.setPrimerApellido(apellido1);
+        alumnaModificar.setSegundoApellido(apellido2);
+        alumnaModificar.setCursoAlumno(curso);
+        alumnaModificar.setEmailAlumno(email);
+        alumnaModificar.setObservacionesAlumno(observaciones);
+        this.modificarAlumno(alumnaModificar);
      }
+
+    private Alumno buscarAlumnoEnBdd(int id_alumno) {
+        return controlPersis.traerAlumno(id_alumno);
+    }
+
+    private void modificarAlumno(Alumno alumnaModificar) {
+        controlPersis.modificarAlumnoBdd(alumnaModificar);
+    }
 
 
 }

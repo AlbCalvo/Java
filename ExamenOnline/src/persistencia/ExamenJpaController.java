@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package persistencia;
 
 import java.io.Serializable;
@@ -17,10 +13,6 @@ import logica.Alumno;
 import logica.Examen;
 import persistencia.exceptions.NonexistentEntityException;
 
-/**
- *
- * @author acmmi
- */
 public class ExamenJpaController implements Serializable {
 
     public ExamenJpaController(EntityManagerFactory emf) {
@@ -147,7 +139,7 @@ public class ExamenJpaController implements Serializable {
         }
     }
 
-    public Examen findExamen(int id) {
+    public Examen findExamen(int id) { //Buscar en bdd el id del examen seleccionado
         EntityManager em = getEntityManager();
         try {
             return em.find(Examen.class, id);

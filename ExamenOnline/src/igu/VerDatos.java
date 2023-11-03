@@ -168,21 +168,18 @@ public class VerDatos extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
           // Edición del registro seleccionado.
-          if ( ScrTablaExamenes.getRowCount() > 0 ) {
+          //Ver si la tabla contiene datos.
+          if ( ScrTablaExamenes.getRowCount() > 0 ) { 
+            //Ver si el usr ha seleccionado una fila 
             if (ScrTablaExamenes.getSelectedRow()!=-1){
+                //Con el Id_Examen ir a Bdd a por dicho registro.
                 int vid_examen = Integer.parseInt(String.valueOf(ScrTablaExamenes.getValueAt(ScrTablaExamenes.getSelectedRow(), 0)));
-                // Con el Id_Examen ir a Bdd a por dicho registro.
+                //Abrir pantalla "ModificarIdentificación"
                 ModificarIdentificacion pantallaModif = new ModificarIdentificacion(vid_examen);
                 pantallaModif.setVisible(true);
                 pantallaModif.setLocationRelativeTo(null);
-                
-                
-                
-                
-                
-                
-                
-                control.mostrarAviso ("Se borró correctamente", "Borrado con éxito", "Info" );
+                this.dispose(); //Cerrar ventana activa
+                //Informar campos de la pantalla abierta.
                 cargarTabla();
             }else {
                 control.mostrarAviso ("No se ha seleccionado examen a eliminar", "Error al eliminar", "Error");

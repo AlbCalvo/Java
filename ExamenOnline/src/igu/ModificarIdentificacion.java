@@ -1,22 +1,18 @@
 package igu;
 
-import java.util.LinkedList;
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
 import logica.Examen;
-import logica.Alumno;
 import logica.Controladora;
  
 public class ModificarIdentificacion extends javax.swing.JFrame {
     Controladora control = null;
     int id_examen;
-    Examen exa; // Declaramos variable global
+    Examen exaGlb; // Declaramos variable global
     
     public ModificarIdentificacion(int id_examen) {
         control = new Controladora();
         //this.id_examen = id_examen;
         initComponents(); //Crea la interface gráfica
-        cargarDatos(id_examen);
+        cargarDatos(id_examen); //Buscar en la Bdd el id_examen del registro seleccionado.
     }
 
     /**
@@ -43,7 +39,7 @@ public class ModificarIdentificacion extends javax.swing.JFrame {
         cmbPrimeraParticipacion = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         btnScLimpiar = new javax.swing.JButton();
-        btnScGuardar = new javax.swing.JButton();
+        btnScGuardarCambios = new javax.swing.JButton();
         btnScGoExamen = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         txtScEmail = new javax.swing.JTextField();
@@ -117,11 +113,11 @@ public class ModificarIdentificacion extends javax.swing.JFrame {
             }
         });
 
-        btnScGuardar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnScGuardar.setText("Guardar cambios");
-        btnScGuardar.addActionListener(new java.awt.event.ActionListener() {
+        btnScGuardarCambios.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnScGuardarCambios.setText("Guardar cambios");
+        btnScGuardarCambios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnScGuardarActionPerformed(evt);
+                btnScGuardarCambiosActionPerformed(evt);
             }
         });
 
@@ -176,7 +172,7 @@ public class ModificarIdentificacion extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnScLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnScGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnScGuardarCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnScGoExamen, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -219,7 +215,7 @@ public class ModificarIdentificacion extends javax.swing.JFrame {
                     .addComponent(cmbPrimeraParticipacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(76, 76, 76)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnScGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnScGuardarCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnScLimpiar)
                     .addComponent(btnScGoExamen))
                 .addGap(69, 69, 69))
@@ -289,26 +285,24 @@ public class ModificarIdentificacion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtScEmailActionPerformed
 
-    private void btnScGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScGuardarActionPerformed
+    private void btnScGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScGuardarCambiosActionPerformed
         
-               
-        control.modificarExayAlu (exa, txtScNombre.getText(), txtScApellido1.getText(), 
+        //Método para modificar 1ºExamen 2ºAlumno (Modificaremos año del examen a 2025
+        //exaGlb=Examen obtenido de la bdd, a través de él podremos obtener el Alumno de la Bdd.
+        control.modificarExayAlu (exaGlb, txtScNombre.getText(), txtScApellido1.getText(), 
                 txtScApellido2.getText(), txtScCurso.getText(), txtScEmail.getText(),
-                txtScObservaciones.getText(), (String) cmbPrimeraParticipacion.getSelectedItem());
-                 
-        
-        // Llamamos a método mostrar mensaje por pantalla.
-        control.mostrarAviso ("Se modificó correctamente", "Modificado con éxito", "Info" );
-        
-        
-        
-        
-    }//GEN-LAST:event_btnScGuardarActionPerformed
+                txtScObservaciones.getText(), (String) cmbPrimeraParticipacion.getSelectedItem()
+                );
+        // Mensaje.
+        control.mostrarAviso ("Se modificó correctamente", "Modificado con éxito", "Info" ); 
+        this.dispose(); //Cierra ventana activa
+                
+    }//GEN-LAST:event_btnScGuardarCambiosActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnScGoExamen;
-    private javax.swing.JButton btnScGuardar;
+    private javax.swing.JButton btnScGuardarCambios;
     private javax.swing.JButton btnScLimpiar;
     private javax.swing.JComboBox<String> cmbPrimeraParticipacion;
     private javax.swing.JLabel jLabel1;
@@ -329,22 +323,22 @@ public class ModificarIdentificacion extends javax.swing.JFrame {
     private javax.swing.JTextArea txtScObservaciones;
     // End of variables declaration//GEN-END:variables
 
+    //Buscar en la Bdd el id_examen del registro seleccionado en pantalla.
     private void cargarDatos(int id_examen) {
         
-        //Esta exa la declaramos como global
-       this.exa = control.traerExamen(id_examen);
-        
-       txtScNombre.setText(exa.getAlumnExamen().getNombreAlumno());
-       txtScApellido1.setText(exa.getAlumnExamen().getPrimerApellido());
-       txtScApellido2.setText(exa.getAlumnExamen().getSegundoApellido());
-       txtScCurso.setText(exa.getAlumnExamen().getCursoAlumno());
-       txtScEmail.setText(exa.getAlumnExamen().getEmailAlumno());
-       txtScObservaciones.setText(exa.getAlumnExamen().getObservacionesAlumno());
-       
-       if (exa.getAlumnExamen().getPrimeraConvocatoriaAlumno().equals("Sí")){
+        //Esta exa la declaramos como global al ppio de la clase.
+        this.exaGlb = control.traerExamen(id_examen); //Buscar regs seleccionado en la Bdd.
+        //Volcar info de la Bdd a la pantalla.
+        txtScNombre.setText(exaGlb.getAlumnExamen().getNombreAlumno());
+        txtScApellido1.setText(exaGlb.getAlumnExamen().getPrimerApellido());
+        txtScApellido2.setText(exaGlb.getAlumnExamen().getSegundoApellido());
+        txtScCurso.setText(exaGlb.getAlumnExamen().getCursoAlumno());
+        txtScEmail.setText(exaGlb.getAlumnExamen().getEmailAlumno());
+        txtScObservaciones.setText(exaGlb.getAlumnExamen().getObservacionesAlumno());
+        if (exaGlb.getAlumnExamen().getPrimeraConvocatoriaAlumno().equals("Sí")){
             cmbPrimeraParticipacion.setSelectedIndex(1);
         } else {
-           if (exa.getAlumnExamen().getPrimeraConvocatoriaAlumno().equals("No")){
+           if (exaGlb.getAlumnExamen().getPrimeraConvocatoriaAlumno().equals("No")){
                cmbPrimeraParticipacion.setSelectedIndex(2);
               } else {
                cmbPrimeraParticipacion.setSelectedIndex(2);
