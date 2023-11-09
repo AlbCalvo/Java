@@ -1,0 +1,68 @@
+git config --global user.name “Alberto Calvo”
+git config --global user.email acmmin@gmail.com
+git config --global -e	.- Ver nuestro fichero de configuración.
+git config -h		.-Ver todos los comandos.
+git init		.-Inicializa directorio, mkdir.
+Git status	 	.- Muestra el estado de los ficheros.
+-----------
+ -> Stage-u originJava master
+-----------
+Git add	<Nombre archivo>	.-  Enviar fichero a Stage
+
+-----------
+ -> Commit
+-----------
+Git commit -m “texto explicativo”
+Git restore  <file>		.- Recupera un archivo que ha sido borrado y no commiteado.
+
+-----------
+ -> GitHub
+-----------
+git push -u originJava master
+
+
+
+
+----------------
+git log
+git log –oneline
+Git status -s	.- Visualización más cómoda.
+
+git branch	.- Ver en k rama estamos.
+git checkout -b <nombre de la nueva rama>
+	git add <nombre archivo>
+	git commit -m “texto”
+git log - -oneline .- Ver historial
+cat <nombre archivo> .- Muestra el contenido de nuestro archivo.
+git checkout <nombre rama a la que me quiero cambiar>
+git merge <nombre de la rama que queremos traernos>	.- Unir las ramas posicionado en la rama destino.
+
+
+
+Descartar cambios de un fichero que está en stage.
+Cuando un fichero está en estage se considera provisional.
+de verde a rojo.
+Git restore –staged <file>
+git status
+
+
+ls -a 		.-	Muestra hasta los directorios ocultos.g
+pwd 
+cd work/
+cd ..
+mkdir.- Crear carpeta
+clear
+code .
+get status
+git add
+git commit -m “msg explicativo”
+rm
+git rm archivo1.txt
+mv file1 file2
+git mv archivo.txt archivo1.txt
+Pwd.-	Muestra directorio de trabajo actual.
+ls.- = Dir
+Cd ..
+
+
+
